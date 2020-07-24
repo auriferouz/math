@@ -1,0 +1,74 @@
+<html>
+<head>
+<style>
+	.text_right{
+	text-align:right;
+	}
+
+	table {
+		width: 500;
+		font-size: 3em;
+		margin: auto;
+		text-align: right;
+		letter-spacing:0;
+		margin: 0;
+		padding: 0;
+	}
+</style>
+</head>
+<body><span class="text_right", style="font-size:3em;"></span>
+
+
+
+<script>
+var j = 10;		// 문제 갯수
+var k = 0;
+var multiple=1;
+var array_a = new Array();
+var array_b = new Array();
+
+for (i=0; i<j*2; i++){
+
+	rand = Math.random();		// 부호랜덤
+	sign = Math.floor( rand * 2 ) * 2 -1;	// [-1, 1] 랜덤
+
+	rand = Math.random();		// 랜덤 생성
+	number = Math.floor( rand * 2 + 1 );	//[1~2] 랜덤
+
+	rand = Math.random();		// 10배수 랜덤
+	multiple = Math.pow(10, Math.floor( rand * 2 + 1 ));	// [1~2] 랜덤	10의n승 [n = 위의 랜덤 값]
+
+	if (i < j){ //0, 2, 4, 6
+		array_a[i] = sign * number * multiple;
+	}
+	else{	//1, 3, 5, 7
+		array_b[k] = sign * number * multiple;
+		k = k + 1;
+	}
+}
+</script>
+
+
+
+<!-- 연산 결과 -->
+<center>
+<table border=1>
+<script>
+pos = 0;
+function MouseEvent(obj){
+	if (pos)
+	pos.style.color = "red";	//color를 background로 바꾸면 배경색이 적용된다.
+	obj.style.color = "red";
+	pos = obj;
+}
+	for(i=0; i<j; i++){
+		document.write('<tr><td width=320>', array_a[i], " / ", array_b[i], " = ", '<td style="color:white", onclick="MouseEvent(this);">', array_a[i]/array_b[i], '</td></td></tr>');
+	}
+</script>
+</table>
+</center>
+
+
+</body>
+</html>
+
