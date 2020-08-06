@@ -1,0 +1,78 @@
+<html>
+<head>
+<style>
+	.text_right{
+	text-align:right;
+	}
+
+	table {
+		width: 500;
+		font-size: 3em;
+		margin: auto;
+		text-align: right;
+		letter-spacing:0;
+		margin: 0;
+		padding: 0;
+	}
+</style>
+</head>
+<body>
+
+
+<center>
+<table border=1>
+
+<script>
+for (i=0; i<10; i++){
+
+	// 부호랜덤 [-1. 1]
+	rand = Math.random();
+	sign_a = Math.floor( rand * 2 ) * 2 -1;
+	rand = Math.random();
+	sign_b = Math.floor( rand * 2 ) * 2 -1;
+
+	// 랜덤 생성
+	rand = Math.random();
+	number_a = Math.floor( rand * 99 + 1 );
+	rand = Math.random();
+	number_b = Math.floor( rand * 99 + 1 );
+
+	rand = Math.random();
+	multiple_a = Math.pow(10, Math.floor( rand * 3));
+	rand = Math.random();
+	multiple_b = Math.pow(10, Math.floor( rand * 3));
+
+	if(sign_b > 0){
+		sign_str = '+';
+	}
+	else{
+		sign_str = '';
+	}
+
+	sum = (sign_a * number_a * 1000 / multiple_a + sign_b * number_b * 1000 / multiple_b) / 1000;
+
+	document.write('<tr><td width=330>', sign_a * number_a / multiple_a, sign_str, sign_b * number_b / multiple_b, " = ", '<td style="color:white", onclick="MouseEvent(this);">', sum, '</td></td></tr>');
+	//document.write(sum, '<br>');
+
+}
+</script>
+
+</table>
+</center>
+
+
+
+<!-- 마우스 롤오버 -->
+<script>
+pos = 0;
+function MouseEvent(obj){
+	if (pos)
+	pos.style.color = "red";	//color를 background로 바꾸면 배경색이 적용된다.
+	obj.style.color = "red";
+	pos = obj;
+}
+</script>
+
+
+</body>
+</html>
