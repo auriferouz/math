@@ -1,0 +1,76 @@
+<html>
+<head>
+<style>
+	.text_right{
+	text-align:right;
+	}
+
+	table {
+		width: 700;
+		font-size: 3em;
+		margin: auto;
+		text-align: right;
+		letter-spacing:0;
+		margin: 0;
+		padding: 0;
+	}
+</style>
+</head>
+<body><span class="text_right", style="font-size:3em;"></span>
+
+
+<center>
+<table border=1>
+
+<script>
+var j = 10;		// 문제 갯수
+var k = 0;
+var multiple=1;
+var array_a = new Array();
+var array_b = new Array();
+var multiple_a = new Array();
+var multiple_b = new Array();
+var sum_a = new Array();
+var sum_b = new Array();
+
+for (i=0; i<10; i++){
+
+	// 부호랜덤 [-1, 1]
+	rand = Math.random();
+	sign_a = Math.floor( rand * 2 ) * 2 -1;
+	rand = Math.random();
+	sign_b = Math.floor( rand * 2 ) * 2 -1;
+
+	// 랜덤 숫자 [1~100]
+	rand = Math.random();
+	number_a = Math.floor( rand * 100 + 1 );
+
+	// 랜덤 10배수 [10의n승] 생성 [n = 랜덤 값]
+	rand = Math.random();
+	multiple_a = Math.pow(10, Math.floor( rand * 6 ));	// [0~5]
+	rand = Math.random();
+	multiple_b = Math.pow(10, Math.floor( rand * 6));	// [0~5]
+
+
+	sum_1 = (sign_a * sign_b * number_a * 100 * 100) / (multiple_a * multiple_b);
+
+	document.write('<tr><td width=400>', sign_a * number_a * 100 / multiple_a, ' x ', sign_b * 100 / multiple_b, ' = ', '<td style="color:white", onclick="MouseEvent(this);">', sum_1, '</td></td></tr>');
+
+}
+</script>
+
+
+<!-- 마우스 롤오버-->
+<script>
+pos = 0;
+function MouseEvent(obj){
+	if (pos)
+	pos.style.color = "red";	//color를 background로 바꾸면 배경색이 적용된다.
+	obj.style.color = "red";
+	pos = obj;
+}
+</script>
+
+</body>
+</html>
+
